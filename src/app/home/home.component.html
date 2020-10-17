@@ -1,0 +1,265 @@
+<!-- ***** Hero Area Start ***** -->
+<div class="fancy-hero-area bg-img bg-overlay animated-img" style="background-image: url({{imageUrl}}bg-img/hero-1.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="fancy-hero-content text-center">
+                    <!-- Video Overview -->
+                    <div class="video-overview">
+
+                        <div class="video-container" [class]="{'fix-hight':playVideo}">
+                            <a *ngIf="playVideo" style="cursor:pointer;color: white;font-weight: 500;float:right;" (click)="setPlayVideo(false)"><span style="color: red;">X</span>  Close </a>
+                            <iframe *ngIf="playVideo" height="400px" class="responsive-iframe" src="https://www.youtube.com/embed/BKOHfBkIaOc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <a *ngIf="!playVideo" (click)="setPlayVideo(true)" class="video--play--btn"><i
+                                class="fa fa-play" aria-hidden="true"></i> Watch The Overview</a>
+                    </div>
+                    <h2 class="home-heading">Check details of Government Schemes & Check Your Data </h2>
+                    <a routerLink="/login" (click)="setPrivateKeyStatus(false)" style="color: white;" class="btn fancy-btn">Check Schemes</a>
+                    <a routerLink="/login" (click)="setPrivateKeyStatus(true)" style="color: white;" class="ml-2 btn fancy-btn">Edit Data</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Hero Area End ***** -->
+
+<!-- ***** Top Feature Area Start ***** -->
+<div class="fancy-top-features-area bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="fancy-top-features-content">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-4">
+                            <div class="single-top-feature">
+                                <h5><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Reliability</h5>
+                                <p>We assure, you will never miss any Opportunity and always have your data updated right. </p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="single-top-feature">
+                                <h5><i class="fa fa-clock-o" aria-hidden="true"></i> Transparency</h5>
+                                <p>We assure, proper reasoning in ease of any failures, and your uneligibility for schemes. </p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="single-top-feature">
+                                <h5><i class="fa fa-diamond" aria-hidden="true"></i> conveniency</h5>
+                                <p>We assure, the easiest and best for you to be connected to us and get benefited. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Top Feature Area End ***** -->
+
+<!-- ***** About Us Area Start ***** -->
+<section class="fancy-about-us-area bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="about-us-text">
+                    <h2>We are your Sahayak(Helper) and will help you to get full benefits from Indian Government Schemes and Jobs. </h2>
+                    <p>Many of us are not awared of newly launched government schemes or although if we are awared of schemes will not get the benefits from scheme ,So to get benefits from schemes we are here to help you in anyway.</p>
+                    <p>We regularly provide Job Notification for Jobs which are for lower groups.</p>
+                    <a routerLink="" class="btn fancy-btn fancy-dark">Read More</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-5 ml-xl-auto">
+                <div class="about-us-thumb wow fadeInUp" data-wow-delay="0.5s">
+                    <img src="{{imageUrl}}bg-img/about-1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** About Us Area End ***** -->
+
+
+<!-- ***** Service Area Start ***** -->
+<section class="fancy-services-area bg-img bg-overlay section-padding-100-70" style="background-image: url({{imageUrl}}bg-img/hero-2.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading heading-white text-center">
+                    <h2>Our Services</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Single Service -->
+            <div class="col-12 col-md-4">
+                <div class="single-service-area text-center wow fadeInUp" data-wow-delay="0.5s">
+                    <i class="ti-ruler-pencil"></i>
+                    <h5>Edit Data</h5>
+                    <p>Edit official data of your family which will be used for government schemes. To edit your data you have to generate a private key from a UIDAI centre.</p>
+                </div>
+            </div>
+            <!-- Single Service -->
+            <div class="col-12 col-md-4">
+                <div class="single-service-area text-center wow fadeInUp" data-wow-delay="1s">
+                    <i class="ti-desktop"></i>
+                    <h5>Check Schemes</h5>
+                    <p>Check available schemes by Indian Government and your data submitted to the Government.</p>
+                </div>
+            </div>
+            <!-- Single Service -->
+            <div class="col-12 col-md-4">
+                <div class="single-service-area text-center wow fadeInUp" data-wow-delay="1.5s">
+                    <i class="ti-announcement"></i>
+                    <h5>Get Notified</h5>
+                    <p>Subscribe to our Newsletter and get notified about new schemes and jobs posted by Indian Government.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Service Area End ***** -->
+
+<!-- ***** Blog Area Start ***** -->
+<section class="fancy-blog-area section-padding-100-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Latest Schemes/Jobs</h2>
+                    <p>Latest Schemes or Jobs launched by Government of India.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Single Blog -->
+            <div class="col-12 col-md-4">
+                <div class="single-blog-area wow fadeInUp " style="height: 700px;" data-wow-delay="0.5s">
+                    <img src="{{imageUrl}}news/pmay.png" class="img-fluid" alt="">
+                    <div class="blog-content">
+                        <h5><a href="static-page.html">Pradhan Mantri Awas Yojana (Urban)-PMAY (U)</a></h5>
+                        <p>Pradhan Mantri Awas Yojana (Urban) Mission launched on 25th June 2015 which intends to provide housing for all in urban areas by year 2022. The Mission provides Central Assistance to the implementing agencies through States/Union
+                            Territories (UTs) and Central Nodal Agencies (CNAs) for providing houses to all eligible families/ beneficiaries against the validated demand for houses for about 1.12 cr. .....</p>
+                        <a href="https://pmaymis.gov.in/" target="_blank">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Blog -->
+            <div class="col-12 col-md-4">
+                <div class="single-blog-area wow fadeInUp " style="height: 700px;" data-wow-delay="1s">
+                    <img src="{{imageUrl}}news/pmksn.jpg " class="img-fluid" alt="">
+                    <div class="blog-content">
+                        <h5><a href="static-page.html">Pradhan Mantri Kisan Samman Nidhi Yojna</a></h5>
+                        <p>Pradhan Mantri Kisan Sammann Nidhi is an initiative by the government of India in which all farmers will get up to ₹6,000 per year as minimum income support. The initiative was to be announced by Piyush Goyal during the 2019 Interim
+                            Union Budget of India on 1 February 2019.</p>
+                        <a href="https://pmkisan.gov.in/" target="_blank">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Blog -->
+            <div class="col-12 col-md-4">
+                <div class="single-blog-area wow fadeInUp " style="height: 700px;" data-wow-delay="1.5s">
+                    <img src="{{imageUrl}}news/pmgky.jpg " class="img-fluid" alt="">
+                    <div class="blog-content">
+                        <h5><a href="static-page.html">Pradhan Mantri Garib Kalyan Yojana</a></h5>
+                        <p>Pradhan Mantri Garib Kalyan Yojana, 2016 (PMGKY) (English, Prime Minister's Poor welfare scheme) is a scheme launched by the Narendra Modi led Government of India in December 2016 on the lines of the Income declaration scheme,
+                            2016 (IDS) launched earlier in the year.A part of the Taxation Laws (Second Amendment) Act, 2016, the scheme provides an opportunity to declare unaccounted wealth and black money ....</p>
+                        <a href="https://en.wikipedia.org/wiki/Pradhan_Mantri_Garib_Kalyan_Yojana" target="_blank">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Blog Area End ***** -->
+
+<!-- ***** Footer Area Start ***** -->
+<footer class="fancy-footer-area fancy-bg-dark">
+    <div class="footer-content section-padding-80-50">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-footer-widget">
+                        <h6>Our Newsletter</h6>
+                        <p>Subscribe to our mailing list to get the updates to your email inbox.</p>
+                        <!-- <form action="#" method="get">
+                            <input type="search" name="search" id="footer-search" placeholder="E-mail">
+                            <button type="submit">Subscribe</button>
+                        </form> -->
+                        <div class="footer-social-widegt d-flex align-items-center">
+                            <a routerLink=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a routerLink=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a routerLink=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                            <a routerLink=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a routerLink=""><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Widget -->
+                <!-- <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget">
+                        <h6>Twitter Feed</h6>
+                        <div class="single-tweet">
+                            <a routerLink=""><i class="fa fa-twitter" aria-hidden="true"></i> With the popularity of
+                                podcast
+                                shows growing with each year, you might consider starting it yourself as well.
+                                <br>https://buff.ly/2zttoJb </a>
+                            <span>About 20 hours ago</span>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-footer-widget">
+                        <h6>Link Categories</h6>
+                        <nav>
+                            <ul>
+                                <li><a routerLink=""><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                        Home</a>
+                                </li>
+                                <li><a (click)="setPrivateKeyStatus(false)" routerLink="/login"><i
+                                            class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                        Schemes</a>
+                                </li>
+                                <li><a (click)="setPrivateKeyStatus(true)" routerLink="/login"><i
+                                            class="fa fa-angle-double-right" aria-hidden="true"></i> Edit
+                                        Data</a>
+                                </li>
+                                <li><a routerLink="/contact"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                        Contact Us</a>
+                                </li>
+
+                                <li><a routerLink=""><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                        Our Mission</a>
+                                </li>
+                                <li><a routerLink=""><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                        About</a>
+                                </li>
+                                <li><a routerLink=""><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                        Privacy</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-footer-widget">
+                        <h6>Contact Us</h6>
+                        <p>Toll Free : 1234 <br>admin@sahayak.com
+                        </p>
+                        <p>Bangla Sahib Road, Behind Kali Mandir, Gole Market,
+                            <br> New Delhi - 110001 </p>
+                        <p>Open hours: 8.00 AM - 6.00 PM</p>
+                        <p>Monday - Friday</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Copywrite -->
+</footer>

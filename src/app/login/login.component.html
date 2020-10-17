@@ -1,0 +1,45 @@
+<!-- LOADER -->
+
+<div *ngIf="spinnerFlag" class="loading">Loading&#8230;</div>
+
+<div class="limiter">
+
+    <div class="container-login100 bg-overlay" style="background-image: url('{{imageUrl}}bg-img/hero-1.jpg');">
+        <div class="wrap-login100 p-t-30 p-b-50">
+            <span class="login100-form-title p-b-41 mb-2">
+                Account Login
+            </span>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="login100-form validate-form p-b-33 p-t-5 py-4">
+
+                <div class="wrap-input100 validate-input" data-validate="Aadhar Number">
+                    <input class="input100" formControlName="aadharNumber" type="text" name="aadharNumber" placeholder="Aadhar Number">
+                </div>
+
+                <div *ngIf="loggedInUserDataService.isUserHavePrivateKey" class="wrap-input100 validate-input" data-validate="Enter Private Key">
+                    <input class="input100" formControlName="privateKey" type="text" name="key" placeholder="Private Key">
+                </div>
+
+                <div *ngIf="otpSentFlag" class="wrap-input100 validate-input" data-validate="Enter OTP">
+                    <input class="input100" formControlName="otp" type="text" name="otp" placeholder="OTP">
+                </div>
+
+
+                <div *ngIf="!otpSentFlag" class="container-login100-form-btn" style="text-align: center;">
+                    <button class="btn fancy-btn my-4" style="color: black;" type="submit">
+                        Get OTP
+                    </button>
+                </div>
+                <div *ngIf="otpSentFlag" class="container-login100-form-btn" style="text-align: center;">
+                    <button class="btn fancy-btn my-4" style="color: black; " type="submit">
+                        Login
+                    </button>
+                </div>
+                <div class="container-login100-form-btn" style="text-align: center;">
+                    Login For <span (click)="setPrivateKeyStatus(false)" class="switch-login-span" *ngIf="loggedInUserDataService.isUserHavePrivateKey"> Check Schemes</span>
+                    <span (click)="setPrivateKeyStatus(true)" class="switch-login-span" *ngIf="!loggedInUserDataService.isUserHavePrivateKey"> Edit Data </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="dropDownSelect1"></div>
