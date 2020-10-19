@@ -10,6 +10,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
+import { UserModule } from './user/user.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,15 @@ import { DashboardComponent } from './user/dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
+    UserModule,
+    AdminModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]

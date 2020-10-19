@@ -12,6 +12,10 @@
     transition-duration: 500ms;
 }
 
+.bg-custom {
+    background-color: #3c3e49;
+}
+
 .is-sticky .header_area {
     background-color: rgba(4, 8, 29, 0.85);
     position: fixed;

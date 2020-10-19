@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     privateKey: new FormControl('')
   });
 
-  constructor(private router: Router, public loggedInUserDataService: LoggedInUserDataService, private authService: AuthService, private toastr: ToastrService) { }
+  constructor(private cookieService: CookieService,private router: Router, public loggedInUserDataService: LoggedInUserDataService, private authService: AuthService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -50,7 +51,11 @@ export class LoginComponent implements OnInit {
           }
         }
         else {
-          this.router.navigateByUrl('/user/dashboard');
+          this.loggedInUserDataService.user=res.data.user;
+          this.loggedInUserDataService.isUserLoggedIn=true;
+          let acc_tok = res.accessToken;
+          this.cookieService.set('access_token', "Bearer " + acc_tok);
+          this.router.navigateByUrl('/user');
         }
         console.log(res);
       },
