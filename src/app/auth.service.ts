@@ -16,6 +16,7 @@ export class AuthService {
   private api_url = environment.api_url;
 
   private login_url = this.api_url + 'auth/login';
+  private admin_login_url = this.api_url + 'auth/admin_login';
   private logout_url = this.api_url + 'auth/logout';
 
   constructor(private http: HttpClient,private cookieService:CookieService,private router:Router,private loggedInUserData:LoggedInUserDataService) { }
@@ -45,6 +46,23 @@ export class AuthService {
         catchError(this.errorHandler)
       );
   }
+
+  adminLogin(username,password): Observable<any> {
+    let data = {
+      username: username,
+      password: password,
+    }
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+      })
+    };
+    return this.http.post<any>(this.admin_login_url, data, httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
 
   logout(): Observable<any> {
     let access_token = this.cookieService.get("access_token");

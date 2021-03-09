@@ -8,20 +8,20 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
   imageUrl = environment.image_url;
   spinnerFlag = false;
   otpSentFlag = false;
 
   loginForm = new FormGroup({
-    aadharNumber: new FormControl('', [Validators.required]),
-    otp: new FormControl(''),
-    privateKey: new FormControl('')
+   username: new FormControl('', [Validators.required]),
+   password: new FormControl('',[Validators.required]),
+    
   });
 
   constructor(private cookieService: CookieService,private router: Router, public loggedInUserDataService: LoggedInUserDataService, private authService: AuthService, private toastr: ToastrService) { }
@@ -32,36 +32,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  setPrivateKeyStatus(status) {
-    this.loggedInUserDataService.isUserHavePrivateKey = status;
-  }
-
   login() {
     this.spinnerFlag = true;
-    let aadharNumber = this.loginForm.get('aadharNumber').value;
-    let privateKey = this.loginForm.get('privateKey').value;
-    let otp = this.loginForm.get('otp').value;
-    this.authService.login(aadharNumber, otp, privateKey).subscribe(
+    let username = this.loginForm.get('username').value;
+    let password = this.loginForm.get('password').value;
+
+    this.authService.adminLogin(username,password).subscribe(
       (res) => {
+        console.log(res);
         this.spinnerFlag = false;
-        if (res.success == false) {
-          if (res.otp == true) {
-            this.otpSentFlag = true;
-            this.toastr.success(res.msg, "Sahayak Admin", { closeButton: true });
-          }
-          else {
-            this.toastr.error(res.msg, "Sahayak Admin", { closeButton: true });
-          }
-        }
-        else {
+        if (res.success == true) {
           this.loggedInUserDataService.user=res.data.user;
           this.loggedInUserDataService.isUserLoggedIn=true;
           let acc_tok = res.accessToken;
           this.cookieService.set('access_token', "Bearer " + acc_tok);
-          if(privateKey){
-            localStorage.setItem('privateKey',privateKey);
-          }
-          this.router.navigateByUrl('/user');
+          this.router.navigateByUrl('/admin');
         }
         console.log(res);
       },
@@ -71,5 +56,4 @@ export class LoginComponent implements OnInit {
       }
     )
   }
-
 }

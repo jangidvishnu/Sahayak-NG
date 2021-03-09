@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="dropdown mx-auto">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+         {{membername || "Select Member"}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a *ngFor="let member of members" (click)="setMember(member.id,member.first_name + ' ' + member.last_name)" class="dropdown-item" >{{member.first_name}} {{member.last_name}}</a>
+        </div>
+    </div>
+    <div class="dropdown mx-auto">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{member_field || "Select Field"}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"  (click)="setMemberField('first_name')" >First Name</a>
+            <a class="dropdown-item" (click)="setMemberField('last_name')" >Last Name</a>
+            <a class="dropdown-item" (click)="setMemberField('aadhar_no')" >Aadhar Number</a>
+            <a class="dropdown-item"  (click)="setMemberField('dob')">Date of Birth</a>
+            <a class="dropdown-item"  (click)="setMemberField('email')">Email</a>
+            <a class="dropdown-item"  (click)="setMemberField('mobile')">Mobile No</a>
+        </div>
+    </div>
+    <div class="form-group mx-auto">
+        <input style="opacity: 1;
+        display: block; height: fit-content;" (change)="fileChange($event,1)" type="file" class="form-control" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*">
+    </div>
+</div>
+
+<div *ngIf="member && member_field && memberUploadedFiles.length"  class="row my-4" >
+    <button (click)="request()" class="btn btn-primary mx-auto">Request For Edit</button>
+</div>

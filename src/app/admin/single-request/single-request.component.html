@@ -1,0 +1,42 @@
+<!----------------------- Asset List -------------------->
+<div class="my-2">User Details</div>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-bordered table-responsive-sm">
+        <thead class="bg-secondary">
+            <tr>
+                <th class="heading" scope="col">Member Name</th>
+                <th class="heading" scope="col">Aadhar No.</th>
+                <th class="heading" scope="col">DOB</th>
+                <th class="heading" scope="col">Mobile</th>
+                <th class="heading" scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-weight: bold;">{{request?.first_name}} {{request?.last_name}}</td>
+                <td>{{request?.aadhar_number}}</td>
+                <td>{{request?.dob |date:'mediumDate'}}</td>
+                <td> {{request?.mobile}} </td>
+                <td>{{request?.email}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="my-2">
+    Want to Change <span style="font-size: larger;font-weight:bolder;"> {{request?.members_field}}</span>
+</div>
+
+<div class="row">
+    <div class='my-4 mx-1'>
+        <img width="600px" height="800px" src="../../../assets/img/docs/{{request?.members_files}}" alt="">
+    </div>
+    <div class="mt-5 mx-auto">
+        <input #emailValue type="text" name="" id="" placeholder="New Value For {{request?.members_field}}">
+        <div class="mx-auto">
+            <button  (click)="updateUser(emailValue.value)" class="btn bg-primary my-4 mx-auto">Submit</button>
+        </div>
+    </div>
+</div>

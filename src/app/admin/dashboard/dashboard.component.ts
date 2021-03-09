@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(public loggedInUSerData: LoggedInUserDataService,public router:Router, private authService: AuthService, private toastr: ToastrService) {
     if(loggedInUSerData.isUserLoggedIn==false){
-      this.router.navigateByUrl("\login");
+      this.router.navigateByUrl("/admin/login");
       this.toastr.error("You are not logged in","Sahayak Admin",{closeButton:true});
     }
   }

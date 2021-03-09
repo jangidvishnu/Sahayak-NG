@@ -1,1 +1,25 @@
-<p>family works!</p>
+
+<!----------------------- Asset List -------------------->
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-bordered table-responsive-sm">
+        <thead class="bg-secondary">
+            <tr>
+                <th class="heading" scope="col">Name</th>
+                <th class="heading" scope="col">Aadhar Number</th>
+                <th class="heading" scope="col">DOB</th>
+                <th class="heading" scope="col">Mobile</th>
+                <th class="heading" scope="col">Email</th>
+                <!-- <th class="heading" scope="col">Status</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let member  of members">
+                <td style="font-weight: bold;">{{member.first_name}} {{member.last_name}}</td>
+                <td>{{member.aadhar_number}}</td>
+                <td>{{member.dob |date:'mediumDate'}}</td>
+                <td> {{member.mobile}} </td>
+                <td>{{member.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

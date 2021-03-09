@@ -7,29 +7,37 @@
         <div class="wrapper">
             <div class="sidebar">
                 <div class="sidebar-wrapper">
+                    
                     <ul class="nav">
-                        <li>
+                        <li [class.active]="this.router.url=='/user/(user:profile)'">
+
                             <a [routerLink]="[{outlets: {user: 'profile'}}]">
                                 <p>Profile</p>
                             </a>
                         </li>
-                        <li>
-                            <a [routerLink]="[{outlets: {user: 'profile'}}]">
+                        <li [class.active]="this.router.url=='/user/(user:schemes)'" >
+                            <a [routerLink]="[{outlets: {user: 'schemes'}}]">
                                 <p>Schemes</p>
                             </a>
                         </li>
-                        <li>
-                            <a routerLink="">
+                        <li [class.active]="this.router.url=='/user/(user:family)'" >
+                            <a [routerLink]="[{outlets: {user: 'family'}}]">
                                 <p>Family Memebers</p>
                             </a>
                         </li>
-                        <li>
-                            <a routerLink="notifications.html">
+                        <li *ngIf="this.loggedInUSerData.isUserHavePrivateKey" [class.active]="this.router.url=='/user/(user:editData)'" >
+                            <a [routerLink]="[{outlets: {user: 'editData'}}]">
+                                <p>Edit Data</p>
+                            </a>
+                        </li>
+                        <li [class.active]="this.router.url=='/user/(user:notifications)'" >
+                            <a [routerLink]="[{outlets: {user: 'notifications'}}]">
 
                                 <p>Notifications</p>
                             </a>
                         </li>
-                        <li>
+                        
+                        <li >
                             <a (click)="logout()" routerLink="notifications.html">
                                 <p>Logout</p>
                             </a>

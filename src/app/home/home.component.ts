@@ -22,7 +22,13 @@ export class HomeComponent implements OnInit {
   }
 
   setPrivateKeyStatus(status){
-    this.loggedInUserDataService.isUserHavePrivateKey=status;
+    if(localStorage.getItem("privateKey")){
+
+    }
+    else{
+      this.loggedInUserDataService.isUserHavePrivateKey=status;
+    }
+    
   }
 
   setPlayVideo(option){

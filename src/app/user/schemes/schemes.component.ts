@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SchemesService } from 'src/app/schemes.service';
 
 @Component({
   selector: 'app-schemes',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchemesComponent implements OnInit {
 
-  constructor() { }
+  schemes =[];
+  constructor(private schemesService:SchemesService) {
+    this.schemesService.getSchemes().subscribe(
+      (res)=>
+      {
+        if(res.success==true){
+          this.schemes= res.data.schemes;
+        }
+      }
+    )
+  }
 
   ngOnInit(): void {
   }

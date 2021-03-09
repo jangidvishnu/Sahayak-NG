@@ -12,9 +12,13 @@ export class AppComponent {
 
   title = 'Sahayak';
   constructor(public loggedInUserData: LoggedInUserDataService, private cookieService: CookieService, private userService: UserService) {
-    if (!loggedInUserData.isUserLoggedIn) {
-      loggedInUserData.isUserHavePrivateKey = false;
+    if (localStorage.getItem('privateKey')) {
+      loggedInUserData.isUserHavePrivateKey = true;
     }
+    else{
+      this.loggedInUserData.isUserHavePrivateKey = false;
+    }
+
     let access_token = this.cookieService.get("access_token");
     if (access_token) {
       loggedInUserData.isUserLoggedIn = true;
@@ -26,7 +30,7 @@ export class AppComponent {
   }
 
   getCustomBgFlag() {
-    if (window.location.href.includes('user')) {
+    if (window.location.href.includes('user') || window.location.href.includes('admin') ) {
       return true;
     }
   }
@@ -39,7 +43,7 @@ export class AppComponent {
           this.loggedInUserData.user=res.data.user;
         }
         else{
-
+          this.loggedInUserData.isUserLoggedIn=false;
         }
       }
       ,

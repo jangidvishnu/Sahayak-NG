@@ -6,10 +6,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { SchemesComponent } from './schemes/schemes.component';
 import { FamilyComponent } from './family/family.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { EditDataComponent } from './edit-data/edit-data.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, SchemesComponent, FamilyComponent, NotificationsComponent],
+  declarations: [ProfileComponent, SchemesComponent, FamilyComponent, NotificationsComponent, EditDataComponent],
   imports: [
     CommonModule,
     UserRoutingModule

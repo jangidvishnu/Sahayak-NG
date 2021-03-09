@@ -1,0 +1,29 @@
+
+<!----------------------- Asset List -------------------->
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-bordered table-responsive-sm">
+        <thead class="bg-secondary">
+            <tr>
+                <th class="heading" scope="col">Req. ID</th>
+                <th class="heading" scope="col">Member Name</th>
+                <th class="heading" scope="col">Aadhar No.</th>
+                <th class="heading" scope="col">DOB</th>
+                <th class="heading" scope="col">Mobile</th>
+                <th class="heading" scope="col">Email</th>
+                <th class="heading" scope="col">Action</th>
+                <!-- <th class="heading" scope="col">Status</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request  of requests">
+                <td style="font-weight: bold;">{{request.request_id}} </td>
+                <td style="font-weight: bold;">{{request.first_name}} {{request.last_name}}</td>
+                <td>{{request.aadhar_number}}</td>
+                <td>{{request.dob |date:'mediumDate'}}</td>
+                <td> {{request.mobile}} </td>
+                <td>{{request.email}}</td>
+                <td><a routerLink="singleRequest/{{request.request_id}}" >Click to edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

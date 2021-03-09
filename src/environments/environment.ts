@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api_url : 'http://localhost:3000/',
-  image_url : 'http://52.41.79.158/sahayak/assets/img/'
+  image_url : './assets/img/'
 };
 
 /*
